@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<p id="result"></p>
+<canvas id="myCanvas" width="1400" height="800" style="border: 1px solid #4833ff"></canvas>
+<script>
+    function Rectangle(x,y,width,height,color) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+
+        this.area = function () {
+            return this.width * this.height;
+        }
+
+        this.circumference = function () {
+            return 2 * (this.width + this.height);
+        }
+
+        this.render = function () {
+            let draw = document.getElementById("myCanvas").getContext("2d");
+            draw.beginPath();
+            draw.rect(this.x,this.y,this.width,this.height);
+            draw.fillStyle = this.color;
+            draw.fill();
+            document.getElementById('result').innerHTML = "S = "+  this.area() +'/ C = '+ this.circumference();
+
+        }
+    }
+
+    let rectangle = new Rectangle(10,10,200,100,'#000000');
+    rectangle.render();
+</script>
+</body>
+</html>

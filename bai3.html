@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<input type="text" id="numberN" placeholder="Nhập N">
+<button onclick="check()">Print</button>
+<p id="result"></p>
+<script>
+    function printFibonacci(n) {
+        let array = [];
+        for (i = 0; i < n; i++) {
+            if (i < 2) {
+                array.push(1);
+            } else {
+                if (array[i - 1] + array[i - 2] < n) {
+                    array.push(array[i - 1] + array[i - 2]);
+                }
+            }
+        }
+        return array;
+    }
+
+    function check() {
+        let result = printFibonacci(parseInt(document.getElementById('numberN').value));
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<input type="text" id="number">
+<button onclick="pushElement()">Add</button>
+</br>
+<p id="theArray"></p>
+<input type="text" id="removeNumber">
+<button onclick="check()">Remove</button>
+<p id="result"></p>
+<script>
+    let theArray = [];
+
+    function pushElement() {
+        theArray.push(parseInt(document.getElementById('number').value));
+        document.getElementById('theArray').innerHTML = theArray;
+    }
+
+    function tryRemoveFromArray(arr, n) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == n) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+        return arr;
+    }
+
+    function check() {
+        let result = tryRemoveFromArray(theArray, document.getElementById('removeNumber').value);
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>
